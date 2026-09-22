@@ -15,6 +15,12 @@
 
 本仓库用两个协作的服务回答这三个问题。
 
+## 界面一览
+
+| 知源 · 知识管理（双层管理 + 切片预览） | 知源 · 案例沉淀（确认入库前人把关） | 知源 · 检索测试（契约字段溯源卡片） |
+|---|---|---|
+| ![知识管理](docs/screenshots/01-knowledge.png) | ![案例沉淀](docs/screenshots/02-cases.png) | ![检索测试](docs/screenshots/03-playground.png) |
+
 ## 架构与数据飞轮
 
 ```mermaid
