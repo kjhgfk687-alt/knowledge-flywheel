@@ -25,14 +25,14 @@
 
 ```mermaid
 flowchart LR
-    U[用户] -->|提问| KZ[客舟 KeZhou :8200<br/>意图路由 · RAG 生成 · 三维风控 · 转人工]
-    KZ -->|POST /retrieve| ZS[知源 KnowSource :8100<br/>平台层政策 + 商户层文档 + 案例库<br/>多租户隔离 · 降级检索]
+    U[用户] -->|提问| KZ[客舟 KeZhou（8200 端口）<br/>意图路由 · RAG 生成 · 三维风控 · 转人工]
+    KZ -->|检索知识| ZS[知源 KnowSource（8100 端口）<br/>平台政策 + 商户文档 + 案例库<br/>多租户隔离 · 降级检索]
     ZS -->|证据 + query_id| KZ
-    KZ -->|[n] 引用回答| U
+    KZ -->|带编号引用的回答| U
     KZ -->|知识盲区| H[人工审核]
     H -->|审核结论| KZ
     KZ -->|POST /cases 回写| ZS
-    ZS -->|pending → 确认入库| ZS
+    ZS -->|待处理 · 确认入库| ZS
     ZS -.->|同类问题优先命中案例| KZ
 ```
 
