@@ -1,0 +1,32 @@
+# ---- 本地归档与个人材料（不入库）----
+2026-09-22_*/
+INDEX.md
+scripts_edit_resume/
+.zcode/
+.zcodeignore
+
+# ---- Python ----
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.env
+*.egg-info/
+
+# ---- 运行时数据与日志 ----
+data/
+db/
+*.sqlite
+*.sqlite3
+*.log
+logs/
+
+# ---- Node / 前端构建产物 ----
+node_modules/
+dist/
+
+# ---- IDE / 系统 ----
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

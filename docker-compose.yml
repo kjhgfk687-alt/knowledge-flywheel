@@ -1,0 +1,22 @@
+# 知源/客舟共享基础设施：只起 PostgreSQL。
+# ChromaDB 用 embedded 模式（本地目录），fastembed 本地跑，均不需容器。
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: knowsource-pg
+    environment:
+      POSTGRES_USER: ks
+      POSTGRES_PASSWORD: ks
+      POSTGRES_DB: knowsource
+    ports:
+      - "5432:5432"
+    volumes:
+      - knowsource_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ks -d knowsource"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  knowsource_pgdata:
